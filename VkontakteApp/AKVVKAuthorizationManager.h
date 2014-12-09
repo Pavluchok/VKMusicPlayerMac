@@ -22,5 +22,6 @@ typedef void(^AKVKAuthorizationCompletion)(BOOL status, NSError *error);
 - (void)authorizationViewWithVC:(NSViewController *)controller
                      completion:(AKVKAuthorizationCompletion) completion;
 - (void)loadAudioWithCompletion:(void (^)(NSArray *, NSError *))completion;
+- (void)loadRecommendationAudioWithCompletion:(void (^)(NSArray *, NSError *))completion;
 
 @end

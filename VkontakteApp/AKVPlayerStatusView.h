@@ -6,15 +6,7 @@
 //  Copyright (c) 2014 vitaliy.pavlyuk. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
-@protocol AKVPlayerViewDelegate <NSObject>
-
-- (void)didSelectPlayButton;
-- (void)didSelectPreviousTrackButton;
-- (void)didSelectNextTrackButton;
-
-@end
+#import "AKVPlayerView.h"
 
 @interface AKVPlayerStatusView : NSView
 

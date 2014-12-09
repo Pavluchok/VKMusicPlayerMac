@@ -41,7 +41,7 @@ static NSString *const kUserIdKey = @"user_id";
     return manager;
 }
 
-
+/*
 - (void)sendMessageToSelfWithCompletion:(void(^)(BOOL completion, NSError *error))completion
 {
     NSString *strForSendMessaqge = [NSString stringWithFormat:@"https://api.vk.com/method/messages.send?user_id=29288617&v=5.26&message=dsfa&access_token=%@",
@@ -58,7 +58,8 @@ static NSString *const kUserIdKey = @"user_id";
     
     
 }
-
+*/
+ 
 - (void)authorizationViewWithVC:(NSViewController *)controller
                      completion:(AKVKAuthorizationCompletion)completion
 {
@@ -72,8 +73,6 @@ static NSString *const kUserIdKey = @"user_id";
     [self setupAuthorizationView];
     
     NSString *stringForURL = [NSString stringWithFormat:kGetAutorizationTokenURLFormatString, clientId, @"messages,audio,friends"];
-    
-    NSLog(@"%@", stringForURL);
     
     [_webView setResourceLoadDelegate:self];
     
@@ -93,52 +92,6 @@ static NSString *const kUserIdKey = @"user_id";
         self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdKey];
     }
     return sessionAviable;
-}
-
-- (NSURLRequest *)webView:(WebView *)sender
-                 resource:(id)identifier
-          willSendRequest:(NSURLRequest *)request
-         redirectResponse:(NSURLResponse *)redirectResponse
-           fromDataSource:(WebDataSource *)dataSource
-{
-    NSLog(@"@%@", [[request URL]absoluteString]);
-    
-    NSString *urlString = [[request URL]absoluteString];
-    
-    if ([urlString rangeOfString:@"#access_token="].location != NSNotFound)
-    {
-        NSRange beginToken = [urlString rangeOfString:@"#access_token="];
-        NSRange endToken = [urlString rangeOfString:@"&"];
-        NSRange endRange = NSMakeRange(NSMaxRange(beginToken), endToken.location - NSMaxRange(beginToken));
-        
-        NSString *accessToken = [urlString substringWithRange:endRange];
-        
-        NSRange beginUserId = [urlString rangeOfString:@"&user_id="];
-        NSString *userId = [urlString substringWithRange:NSMakeRange(NSMaxRange(beginUserId), urlString.length - NSMaxRange(beginUserId))];
-        userId = [[userId componentsSeparatedByString:@"&"] objectAtIndex:0];
-                                                                     
-        [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kAccessTokenKey];
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:kUserIdKey];
-        [self setAccessToken:accessToken];
-        [self setUserId:userId];
-        [_webView removeFromSuperview];
-        [self setWebView:nil];
-        
-        _completionBlock(YES, nil);
-        _completionBlock = nil;
-    }
-    
-    return request;
-}
-
-- (void)setupAuthorizationView
-{
-    NSWindow * newWindows = [[NSApplication sharedApplication]windows][0];
-    NSRect webViewFrame = [newWindows.contentView bounds];
-    
-    _webView = [[WebView alloc]initWithFrame:webViewFrame];
-    
-    [_parentVC.view addSubview:_webView];
 }
 
 - (void)loadAudioWithCompletion:(void (^)(NSArray *, NSError *))completion
@@ -173,6 +126,78 @@ static NSString *const kUserIdKey = @"user_id";
                            }];
 }
 
+- (void)loadRecommendationAudioWithCompletion:(void (^)(NSArray *, NSError *))completion
+{
+    
+    NSString *strForAudio = [NSString stringWithFormat:@"https://api.vk.com/method/audio.getRecommendations?access_token=%@",
+                             _accessToken];
+    NSURL *audioURL = [NSURL URLWithString:strForAudio];
+    
+    BLOCK_WEAK_SELF weakRef = self;
+    
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:audioURL]
+                                       queue:[NSOperationQueue new]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                               BLOCK_STRONG_SELF strongRef = weakRef;
+                               if (completion) {
+                                   NSArray *parseData;
+                                   if (error == nil)
+                                   {
+                                       NSError *authorizationError = nil;
+                                       parseData = [strongRef parseAudioTrackData:data error:&authorizationError];
+                                       
+                                       if(authorizationError)
+                                       {
+                                           [[NSUserDefaults standardUserDefaults]removeObjectForKey:kAccessTokenKey];
+                                           error = authorizationError;
+                                       }
+                                   }
+                                   completion(parseData, error);
+                               }
+                           }];
+
+}
+
+#pragma mark - WebView delegate
+
+- (NSURLRequest *)webView:(WebView *)sender
+                 resource:(id)identifier
+          willSendRequest:(NSURLRequest *)request
+         redirectResponse:(NSURLResponse *)redirectResponse
+           fromDataSource:(WebDataSource *)dataSource
+{
+    NSLog(@"@%@", [[request URL]absoluteString]);
+    
+    NSString *urlString = [[request URL]absoluteString];
+    
+    if ([urlString rangeOfString:@"#access_token="].location != NSNotFound)
+    {
+        NSRange beginToken = [urlString rangeOfString:@"#access_token="];
+        NSRange endToken = [urlString rangeOfString:@"&"];
+        NSRange endRange = NSMakeRange(NSMaxRange(beginToken), endToken.location - NSMaxRange(beginToken));
+        
+        NSString *accessToken = [urlString substringWithRange:endRange];
+        
+        NSRange beginUserId = [urlString rangeOfString:@"&user_id="];
+        NSString *userId = [urlString substringWithRange:NSMakeRange(NSMaxRange(beginUserId), urlString.length - NSMaxRange(beginUserId))];
+        userId = [[userId componentsSeparatedByString:@"&"] objectAtIndex:0];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kAccessTokenKey];
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:kUserIdKey];
+        [self setAccessToken:accessToken];
+        [self setUserId:userId];
+        [_webView removeFromSuperview];
+        [self setWebView:nil];
+        
+        _completionBlock(YES, nil);
+        _completionBlock = nil;
+    }
+    
+    return request;
+}
+
+#pragma mark - helper methods
+
 - (NSArray *)parseAudioTrackData:(NSData *)tracks error:(NSError **)error
 {
     NSError *parsingError = nil;
@@ -192,7 +217,7 @@ static NSString *const kUserIdKey = @"user_id";
     NSMutableArray *audioTracks = nil;
     
     if (parsingError == nil) {
-    
+        
         audioTracks = [[NSMutableArray alloc]initWithCapacity:[dic[@"response"][@"count"] intValue]];
         
         for (NSDictionary *audio in dic[@"response"][@"items"])
@@ -210,6 +235,16 @@ static NSString *const kUserIdKey = @"user_id";
     }
     
     return audioTracks;
+}
+
+- (void)setupAuthorizationView
+{
+    NSWindow * newWindows = [[NSApplication sharedApplication]windows][0];
+    NSRect webViewFrame = [newWindows.contentView bounds];
+    
+    _webView = [[WebView alloc]initWithFrame:webViewFrame];
+    
+    [_parentVC.view addSubview:_webView];
 }
 
 @end

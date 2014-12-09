@@ -23,7 +23,4 @@
 
 @property (nonatomic, weak) id<AKVPlayerViewDelegate>delegate;
 
-- (void)updateTrackDuration:(NSUInteger)duration trackName:(NSString *)name;
-- (void)updateSliderValue:(NSInteger)value;
-
 @end

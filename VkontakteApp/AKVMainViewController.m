@@ -14,16 +14,18 @@
 #import "AKVTracksTableView.h"
 #import "AKVTrackTableViewCellDelegate.h"
 #import "AKVAudioTrack+TableRepresentation.h"
-#import "AKVPlayerView.h"
+#import "AKVPlayerWindowView.h"
+#import "AKVPlayerStatusView.h"
 
 @interface AKVMainViewController () <NSTableViewDataSource, NSTableViewDelegate, AKVAudioPlayerDelegate, AKVTrackTableViewCellDelegate, AKVPlayerViewDelegate>
 
 @property (nonatomic, weak) IBOutlet AKVTracksTableView *audiosTable;
-@property (nonatomic, weak) IBOutlet AKVPlayerView *playerView;
+@property (nonatomic, weak) IBOutlet AKVPlayerWindowView *playerView;
+
+@property (nonatomic, strong) NSStatusItem *statusItem;
+
 @property (nonatomic, strong) NSArray *tracks;
 @property (nonatomic, strong) AKVAudioPlayer *player;
-
-@property (strong, nonatomic) NSStatusItem *statusItem;
 
 @end
 
@@ -36,6 +38,7 @@
         _player = [AKVAudioPlayer new];
         [_player setDelegate:self];
         [self checkLogin];
+        [self setupStatusItem];
         //[self activateStatusMenu];
     }
     return self;
@@ -53,6 +56,14 @@
     [self.playerView setDelegate:self];
     [self.audiosTable setDelegate:self];
     [self.audiosTable setDataSource:self];
+}
+
+- (void)setupStatusItem
+{
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    AKVPlayerStatusView *menuPlayer = [[AKVPlayerStatusView alloc]initPlayerView];
+    [menuPlayer setDelegate:self];
+    [self.statusItem setView:menuPlayer];
 }
 
 - (void)checkLogin
