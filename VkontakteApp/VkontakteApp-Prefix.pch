@@ -7,3 +7,6 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#define BLOCK_WEAK_SELF __typeof(self) __weak
+#define BLOCK_STRONG_SELF __typeof(self) __strong

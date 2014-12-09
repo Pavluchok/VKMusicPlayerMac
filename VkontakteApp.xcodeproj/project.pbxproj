@@ -18,6 +18,19 @@
 		840E8AA01A0B81FD00DA9E48 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840E8A7F1A0B81FD00DA9E48 /* Cocoa.framework */; };
 		840E8AA81A0B81FD00DA9E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 840E8AA61A0B81FD00DA9E48 /* InfoPlist.strings */; };
 		840E8AAA1A0B81FD00DA9E48 /* VkontakteAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840E8AA91A0B81FD00DA9E48 /* VkontakteAppTests.m */; };
+		843168931A30B40E0077C203 /* AKVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843168921A30B40E0077C203 /* AKVPlayerView.m */; };
+		8451EE581A31D7D500BB46A5 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451EE571A31D7D500BB46A5 /* NSString+TimeFormatter.m */; };
+		8472BC901A12119C006C1614 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8472BC8F1A12119C006C1614 /* MainView.xib */; };
+		849F66681A2CB1DB009E05B5 /* AKVTrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F66671A2CB1DB009E05B5 /* AKVTrackTableViewCell.m */; };
+		849F666B1A2CC71E009E05B5 /* AKVTracksTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F666A1A2CC71E009E05B5 /* AKVTracksTableView.m */; };
+		84C219271A289C3E008AC791 /* AKVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C219261A289C3E008AC791 /* AKVAudioPlayer.m */; };
+		84C219291A289DEA008AC791 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C219281A289DEA008AC791 /* AVFoundation.framework */; };
+		84C2192D1A28C68A008AC791 /* AKVPlayerStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2192C1A28C689008AC791 /* AKVPlayerStatusView.m */; };
+		84E94EE31A30817100A373A3 /* AKVAudioTrack+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E94EE21A30817100A373A3 /* AKVAudioTrack+TableRepresentation.m */; };
+		84F8A1C01A370A6200A57B2C /* NSImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8A1BF1A370A6200A57B2C /* NSImage+Rotate.m */; };
+		84FDBA331A10C7DA0076ADBB /* AKVVKAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FDBA321A10C7DA0076ADBB /* AKVVKAuthorizationManager.m */; };
+		84FDBA3A1A10FA920076ADBB /* AKVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FDBA391A10FA920076ADBB /* AKVMainViewController.m */; };
+		84FDBA3E1A110CCA0076ADBB /* AKVAudioTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FDBA3D1A110CCA0076ADBB /* AKVAudioTrack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +63,32 @@
 		840E8AA51A0B81FD00DA9E48 /* VkontakteAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VkontakteAppTests-Info.plist"; sourceTree = "<group>"; };
 		840E8AA71A0B81FD00DA9E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		840E8AA91A0B81FD00DA9E48 /* VkontakteAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VkontakteAppTests.m; sourceTree = "<group>"; };
+		843168911A30B40E0077C203 /* AKVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVPlayerView.h; sourceTree = "<group>"; };
+		843168921A30B40E0077C203 /* AKVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVPlayerView.m; sourceTree = "<group>"; };
+		843CC29E1A2DEAE5002BD038 /* AKVTrackTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKVTrackTableViewCellDelegate.h; sourceTree = "<group>"; };
+		8451EE561A31D7D500BB46A5 /* NSString+TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatter.h"; sourceTree = "<group>"; };
+		8451EE571A31D7D500BB46A5 /* NSString+TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatter.m"; sourceTree = "<group>"; };
+		8472BC8F1A12119C006C1614 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		849F66661A2CB1DB009E05B5 /* AKVTrackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVTrackTableViewCell.h; sourceTree = "<group>"; };
+		849F66671A2CB1DB009E05B5 /* AKVTrackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVTrackTableViewCell.m; sourceTree = "<group>"; };
+		849F66691A2CC71E009E05B5 /* AKVTracksTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVTracksTableView.h; sourceTree = "<group>"; };
+		849F666A1A2CC71E009E05B5 /* AKVTracksTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVTracksTableView.m; sourceTree = "<group>"; };
+		84C219251A289C3D008AC791 /* AKVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVAudioPlayer.h; sourceTree = "<group>"; };
+		84C219261A289C3E008AC791 /* AKVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVAudioPlayer.m; sourceTree = "<group>"; };
+		84C219281A289DEA008AC791 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		84C2192B1A28C689008AC791 /* AKVPlayerStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVPlayerStatusView.h; sourceTree = "<group>"; };
+		84C2192C1A28C689008AC791 /* AKVPlayerStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVPlayerStatusView.m; sourceTree = "<group>"; };
+		84E94EE11A30817100A373A3 /* AKVAudioTrack+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AKVAudioTrack+TableRepresentation.h"; sourceTree = "<group>"; };
+		84E94EE21A30817100A373A3 /* AKVAudioTrack+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AKVAudioTrack+TableRepresentation.m"; sourceTree = "<group>"; };
+		84F8A1BE1A370A6200A57B2C /* NSImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Rotate.h"; sourceTree = "<group>"; };
+		84F8A1BF1A370A6200A57B2C /* NSImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Rotate.m"; sourceTree = "<group>"; };
+		84FDBA311A10C7DA0076ADBB /* AKVVKAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVVKAuthorizationManager.h; sourceTree = "<group>"; };
+		84FDBA321A10C7DA0076ADBB /* AKVVKAuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVVKAuthorizationManager.m; sourceTree = "<group>"; };
+		84FDBA341A10CA410076ADBB /* AKVAuthorizationConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKVAuthorizationConfig.h; sourceTree = "<group>"; };
+		84FDBA381A10FA920076ADBB /* AKVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVMainViewController.h; sourceTree = "<group>"; };
+		84FDBA391A10FA920076ADBB /* AKVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVMainViewController.m; sourceTree = "<group>"; };
+		84FDBA3C1A110CCA0076ADBB /* AKVAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKVAudioTrack.h; sourceTree = "<group>"; };
+		84FDBA3D1A110CCA0076ADBB /* AKVAudioTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKVAudioTrack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C219291A289DEA008AC791 /* AVFoundation.framework in Frameworks */,
 				840E8A801A0B81FD00DA9E48 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +135,7 @@
 		840E8A7E1A0B81FD00DA9E48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84C219281A289DEA008AC791 /* AVFoundation.framework */,
 				840E8A7F1A0B81FD00DA9E48 /* Cocoa.framework */,
 				840E8A9E1A0B81FD00DA9E48 /* XCTest.framework */,
 				840E8A811A0B81FD00DA9E48 /* Other Frameworks */,
@@ -115,11 +156,19 @@
 		840E8A851A0B81FD00DA9E48 /* VkontakteApp */ = {
 			isa = PBXGroup;
 			children = (
+				8451EE591A31D96D00BB46A5 /* Helpful */,
+				8451EE551A31D12400BB46A5 /* AudioPlayerView */,
+				849F66651A2CB100009E05B5 /* TracksTableView */,
+				84C2192A1A289DFA008AC791 /* AudioPlayer */,
+				84FDBA3B1A1103920076ADBB /* VKManager */,
 				840E8A911A0B81FD00DA9E48 /* AKVAppDelegate.h */,
 				840E8A921A0B81FD00DA9E48 /* AKVAppDelegate.m */,
 				840E8A941A0B81FD00DA9E48 /* MainMenu.xib */,
 				840E8A971A0B81FD00DA9E48 /* Images.xcassets */,
 				840E8A861A0B81FD00DA9E48 /* Supporting Files */,
+				84FDBA381A10FA920076ADBB /* AKVMainViewController.h */,
+				84FDBA391A10FA920076ADBB /* AKVMainViewController.m */,
+				8472BC8F1A12119C006C1614 /* MainView.xib */,
 			);
 			path = VkontakteApp;
 			sourceTree = "<group>";
@@ -152,6 +201,63 @@
 				840E8AA61A0B81FD00DA9E48 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8451EE551A31D12400BB46A5 /* AudioPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				843168911A30B40E0077C203 /* AKVPlayerView.h */,
+				843168921A30B40E0077C203 /* AKVPlayerView.m */,
+			);
+			name = AudioPlayerView;
+			sourceTree = "<group>";
+		};
+		8451EE591A31D96D00BB46A5 /* Helpful */ = {
+			isa = PBXGroup;
+			children = (
+				8451EE561A31D7D500BB46A5 /* NSString+TimeFormatter.h */,
+				8451EE571A31D7D500BB46A5 /* NSString+TimeFormatter.m */,
+				84F8A1BE1A370A6200A57B2C /* NSImage+Rotate.h */,
+				84F8A1BF1A370A6200A57B2C /* NSImage+Rotate.m */,
+			);
+			name = Helpful;
+			sourceTree = "<group>";
+		};
+		849F66651A2CB100009E05B5 /* TracksTableView */ = {
+			isa = PBXGroup;
+			children = (
+				849F66661A2CB1DB009E05B5 /* AKVTrackTableViewCell.h */,
+				849F66671A2CB1DB009E05B5 /* AKVTrackTableViewCell.m */,
+				849F66691A2CC71E009E05B5 /* AKVTracksTableView.h */,
+				849F666A1A2CC71E009E05B5 /* AKVTracksTableView.m */,
+				843CC29E1A2DEAE5002BD038 /* AKVTrackTableViewCellDelegate.h */,
+				84E94EE11A30817100A373A3 /* AKVAudioTrack+TableRepresentation.h */,
+				84E94EE21A30817100A373A3 /* AKVAudioTrack+TableRepresentation.m */,
+			);
+			name = TracksTableView;
+			sourceTree = "<group>";
+		};
+		84C2192A1A289DFA008AC791 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				84C2192B1A28C689008AC791 /* AKVPlayerStatusView.h */,
+				84C2192C1A28C689008AC791 /* AKVPlayerStatusView.m */,
+				84C219251A289C3D008AC791 /* AKVAudioPlayer.h */,
+				84C219261A289C3E008AC791 /* AKVAudioPlayer.m */,
+			);
+			name = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		84FDBA3B1A1103920076ADBB /* VKManager */ = {
+			isa = PBXGroup;
+			children = (
+				84FDBA311A10C7DA0076ADBB /* AKVVKAuthorizationManager.h */,
+				84FDBA321A10C7DA0076ADBB /* AKVVKAuthorizationManager.m */,
+				84FDBA341A10CA410076ADBB /* AKVAuthorizationConfig.h */,
+				84FDBA3C1A110CCA0076ADBB /* AKVAudioTrack.h */,
+				84FDBA3D1A110CCA0076ADBB /* AKVAudioTrack.m */,
+			);
+			name = VKManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +340,7 @@
 				840E8A8A1A0B81FD00DA9E48 /* InfoPlist.strings in Resources */,
 				840E8A981A0B81FD00DA9E48 /* Images.xcassets in Resources */,
 				840E8A901A0B81FD00DA9E48 /* Credits.rtf in Resources */,
+				8472BC901A12119C006C1614 /* MainView.xib in Resources */,
 				840E8A961A0B81FD00DA9E48 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,8 +360,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FDBA331A10C7DA0076ADBB /* AKVVKAuthorizationManager.m in Sources */,
 				840E8A8C1A0B81FD00DA9E48 /* main.m in Sources */,
+				849F666B1A2CC71E009E05B5 /* AKVTracksTableView.m in Sources */,
 				840E8A931A0B81FD00DA9E48 /* AKVAppDelegate.m in Sources */,
+				84C2192D1A28C68A008AC791 /* AKVPlayerStatusView.m in Sources */,
+				84E94EE31A30817100A373A3 /* AKVAudioTrack+TableRepresentation.m in Sources */,
+				849F66681A2CB1DB009E05B5 /* AKVTrackTableViewCell.m in Sources */,
+				84C219271A289C3E008AC791 /* AKVAudioPlayer.m in Sources */,
+				843168931A30B40E0077C203 /* AKVPlayerView.m in Sources */,
+				8451EE581A31D7D500BB46A5 /* NSString+TimeFormatter.m in Sources */,
+				84FDBA3A1A10FA920076ADBB /* AKVMainViewController.m in Sources */,
+				84FDBA3E1A110CCA0076ADBB /* AKVAudioTrack.m in Sources */,
+				84F8A1C01A370A6200A57B2C /* NSImage+Rotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +585,7 @@
 				840E8AAF1A0B81FD00DA9E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		840E8AB01A0B81FD00DA9E48 /* Build configuration list for PBXNativeTarget "VkontakteAppTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +594,7 @@
 				840E8AB21A0B81FD00DA9E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
