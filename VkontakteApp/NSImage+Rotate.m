@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 vitaliy.pavlyuk. All rights reserved.
 //
 
-#import "NSImage+Transform.h"
+#import "NSImage+Rotate.h"
 
-@implementation NSImage (Transform)
+@implementation NSImage (Rotate)
 
-- (NSImage *)imageRotate:(float)degrees
+- (NSImage *)imageRotated:(float)degrees
 {
     if (0 != fmod(degrees,90.)) { NSLog( @"This code has only been tested for multiples of 90 degrees. (TODO: test and remove this line)"); }
     degrees = fmod(degrees, 360.);
@@ -40,27 +40,6 @@
     [image unlockFocus];
     
     return image;
-}
-
-- (NSImage *)resizedImageToSize:(NSSize)size
-{
-    NSImage *resizeImage = self;
-    [resizeImage setScalesWhenResized:YES];
-    
-    if (![resizeImage isValid])
-    {
-        NSLog(@"ERROR!!! INVALID IMAGE");
-        return nil;
-    }
-    
-    NSImage *smallImage = [[NSImage alloc]initWithSize:size];
-    [smallImage lockFocus];
-    [resizeImage setSize:size];
-    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-    [resizeImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
-    [smallImage unlockFocus];
-    
-    return smallImage;
 }
 
 @end

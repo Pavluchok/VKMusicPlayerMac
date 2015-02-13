@@ -7,9 +7,8 @@
 //
 
 #import "AKVPlayerStatusView.h"
-#import "NSImage+Transform.h"
 
-static CGFloat const kWidthAndHeightPlayerButton = 20.0;
+static CGFloat const kWidthAndHeightPlayerButton = 25.0;
 
 @implementation AKVPlayerStatusView
 
@@ -35,60 +34,58 @@ static CGFloat const kWidthAndHeightPlayerButton = 20.0;
 
 - (void)setupPlayerButton
 {
-
     NSRect previousRect = NSMakeRect(0, 0, kWidthAndHeightPlayerButton, kWidthAndHeightPlayerButton);
     
-    NSImage *nextSongImage = [[NSImage imageNamed:@"NextSong"]resizedImageToSize:previousRect.size];
+    NSImageView *previousImageView = [[NSImageView alloc]initWithFrame:previousRect];
+    [previousImageView setTarget:self];
+    [previousImageView setAction:@selector(tapPreviousButton:)];
     
     NSButton *previousButton = [[NSButton alloc]initWithFrame:previousRect];
     [previousButton setTarget:self];
     [previousButton setAction:@selector(tapPreviousButton:)];
-    [previousButton setBordered:NO];
-    [previousButton setImage:[nextSongImage imageRotate:180.0]];
     
     NSRect playRect = NSMakeRect(NSMaxX(previousRect), 0, kWidthAndHeightPlayerButton, kWidthAndHeightPlayerButton);
     NSButton *playButton = [[NSButton alloc]initWithFrame:playRect];
     [playButton setTarget:self];
     [playButton setAction:@selector(tapPlayButton:)];
-    [playButton setBordered:NO];
-    [playButton setImage:[[NSImage imageNamed:@"PlayButton"]resizedImageToSize:playRect.size]];
     
     NSRect nextRect = NSMakeRect(NSMaxX(playRect), 0, kWidthAndHeightPlayerButton, kWidthAndHeightPlayerButton);
     NSButton *nextButton = [[NSButton alloc]initWithFrame:nextRect];
     [nextButton setTarget:self];
     [nextButton setAction:@selector(tapNextButton:)];
-    [nextButton setBordered:NO];
-    [nextButton setImage:nextSongImage];
     
-    [self addSubview:previousButton];
+//[self addSubview:previousButton];
+    [self addSubview:previousImageView];
     [self addSubview:playButton];
     [self addSubview:nextButton];
     
-    [self setFrame:NSMakeRect(0, 1, NSMaxX(nextRect), kWidthAndHeightPlayerButton)];
+    [self setFrame:NSMakeRect(0, 0, NSMaxX(nextRect), kWidthAndHeightPlayerButton)];
 }
 
 - (void)tapPreviousButton:(NSButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(didTapPreviousButton:)])
+    if ([self.delegate respondsToSelector:@selector(didSelectPreviousTrackButton)])
     {
-        [self.delegate didTapPreviousButton:button];
+        [self.delegate didSelectPreviousTrackButton];
     }
 }
 
 - (void)tapPlayButton:(NSButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(didTapPlayButton:)])
+    if ([self.delegate respondsToSelector:@selector(didSelectPlayButton)])
     {
-        [self.delegate didTapPlayButton:button];
+        [self.delegate didSelectPlayButton];
     }
+
 }
 
 - (void)tapNextButton:(NSButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(didTapNextButton:)])
+    if ([self.delegate respondsToSelector:@selector(didSelectNextTrackButton)])
     {
-        [self.delegate didTapNextButton:button];
+        [self.delegate didSelectNextTrackButton];
     }
+
 }
 
 

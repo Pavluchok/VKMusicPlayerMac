@@ -8,9 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NSImage (Transform)
+@interface NSImage (Rotate)
 
-- (NSImage *)imageRotate:(float)degrees;
-- (NSImage *)resizedImageToSize:(NSSize)size;
+- (NSImage *)imageRotated:(float)degrees;
 
 @end

@@ -18,6 +18,7 @@
     id playbackObserver;
 }
 @property (nonatomic, strong) AVPlayer *audioPlayer;
+@property (nonatomic, strong) AKVPlayerStatusView *playerView;
 
 @end
 
@@ -26,9 +27,9 @@
 - (instancetype)init
 {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _audioPlayer = [AVPlayer new];
+        [self setupStatusItem];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(itemDidFinishPlaying:)
                                                      name:AVPlayerItemDidPlayToEndTimeNotification
@@ -39,6 +40,12 @@
     return self;
 }
 
+- (void)setupStatusItem
+{
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    _playerView = [[AKVPlayerStatusView alloc]initPlayerView];
+    [statusItem setView:_playerView];
+}
 
 - (void)playAudioTrack:(AKVAudioTrack *)track
 {
