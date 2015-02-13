@@ -103,6 +103,9 @@ static NSString *const kUserIdKey = @"user_id";
 {
     NSLog(@"@%@", [[request URL]absoluteString]);
     
+    
+    
+    
     NSString *urlString = [[request URL]absoluteString];
     
     if ([urlString rangeOfString:@"#access_token="].location != NSNotFound)
